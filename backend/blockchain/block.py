@@ -37,7 +37,9 @@ class Block:
                
     def __eq__(self, other):
         return self.__dict__ == other.__dict__
-
+    def to_json(self):
+        # Serialize the block to a dictionary
+        return self.__dict__
     
     @staticmethod  
     def mine_block(last_block, data):
@@ -53,10 +55,19 @@ class Block:
             difficulty = Block.adjust_difficulty(last_block,timestamp)
             hash = crypto_hash(timestamp,last_hash,data, difficulty, nonce)
         return Block(timestamp, last_hash, hash, data, difficulty, nonce)
+  
+
     @staticmethod
     def genesis():
         
          return Block(**GENESIS_DATA)  
+    
+
+
+    @staticmethod
+    def from_json(block_json):
+        # Deserialized block
+        return Block(**block_json)
     
     @staticmethod
     def adjust_difficulty(last_block, new_timestamp):

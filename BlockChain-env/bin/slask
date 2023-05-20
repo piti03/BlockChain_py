@@ -1,0 +1,12 @@
+#!/home/piti/web/BlockChain/BlockChain-env/bin/python3
+
+from slask import slask, parse_args
+from sys import exit
+
+def main():
+    (args, kwargs) = parse_args()
+    runtime = slask(*args, **kwargs)
+    return runtime.run()
+
+if __name__ == '__main__':
+    exit(main())

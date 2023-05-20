@@ -28,6 +28,18 @@ class Blockchain:
             raise Exception('Cannot replace.New chain must formatted correctly')
         
         self.chain = chain
+    def to_json(self):
+        # Serialize the blockchain data
+        return list(map(lambda block : block.to_json(), self.chain))
+
+
+    @staticmethod
+    def from_json(chain_json):
+        blockchain = Blockchain()
+        blockchain.chain = list(map(lambda block_json : Block.from_json(block_json),chain_json))
+        return blockchain
+
+
 
         
     @staticmethod

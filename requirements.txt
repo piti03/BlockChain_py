@@ -3,3 +3,4 @@ pytest==7.3.1
 flask ==2.3.2
 pubnub==7.1.0
 requests==2.30.0
+cryptography==40.0.2

@@ -13,7 +13,8 @@ class Wallet :
     # Individual wallet for a miner
     # Keeps currencies
     # Autorizied the transactions
-    def __init__(self):
+    def __init__(self, blockchain=None):
+        self.blockchain = blockchain
         self.address = str(uuid.uuid4())[:8]
         self.ballance = STARTING_BALANCE
         self.private_key = ec.generate_private_key(
@@ -22,6 +23,12 @@ class Wallet :
         )
         self.public_key = self.private_key.public_key()
         self.serialize_public_key()
+
+    @property
+    def balance(self):
+        return Wallet.calculate_balance(self.blockchain, self.address)
+
+
 
     def sign(self, data):
         # Create signature based on data and private key
@@ -61,6 +68,8 @@ class Wallet :
     def calculate_balance(blockchain, address):
         # Calculate the balance of the given address
         balance = STARTING_BALANCE
+        if not blockchain:
+            return balance
         for block in blockchain.chain:
             for transaction in block.data:
                 if transaction['input']['address'] == address:

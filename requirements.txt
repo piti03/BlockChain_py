@@ -5,4 +5,5 @@ pubnub==7.1.0
 requests==2.30.0
 cryptography==40.0.2
 nodejs==20.2.0
+Flask-Cors==3.0.10
 

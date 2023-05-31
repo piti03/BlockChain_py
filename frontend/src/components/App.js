@@ -13,9 +13,6 @@ function App() {
   }, []);
   const {address, balance} = walletInfo;
     
-  
-
-
 
   return (
       <div className="App">
@@ -23,8 +20,8 @@ function App() {
         <h3>BlockChain</h3>
         <br/>
         <Link to="/blockchain">blockchain</Link>
-        
-        <Link to="/conduct-transaction">transaction</Link>
+        <Link to="/conduct-transaction">conduct transaction</Link>
+        <Link to="/transaction-pool">transactionpool</Link>
         <br/>
         <div className="WalletInfo">
           <div>address : {address}</div>

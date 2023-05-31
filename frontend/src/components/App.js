@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react";
 import logo from '../assets/logo.png';
 import { API_BASE_URL } from "../config";
-import BlockChain from "./BlockChain";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
 
 function App() {
   const[walletInfo, setWalletInfo] = useState({});
@@ -21,12 +22,14 @@ function App() {
         <img className="logo" src={logo} alt="app_logo"/>
         <h3>BlockChain</h3>
         <br/>
+        <Link to="/blockchain">blockchain</Link>
+        
+        <Link to="/conduct-transaction">transaction</Link>
+        <br/>
         <div className="WalletInfo">
           <div>address : {address}</div>
           <div>balance : {balance}</div>
         </div>
-        <br/>
-        <BlockChain/>
       </div>
   );
 

@@ -42,3 +42,8 @@ and finaly run : npx create-react-app frontend
 '''
 npm run start
 '''
+**seed the backend with data**
+'''
+make sure you are in environment
+export SEED_DATA && python3 -m backend.app
+'''
